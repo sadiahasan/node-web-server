@@ -2,6 +2,7 @@ const express = require('express'); //nodemon server.js -e js,hbs
 const hbs = require('hbs'); //handlebars
 const fs = require('fs');
 
+const port = process.env.PORT || 3000; //get heroku variable
 var app = express(); 
 
 hbs.registerPartials(__dirname + '/views/partials'); //add partial templates
@@ -53,8 +54,8 @@ app.get('/bad', (req, res) => {
 	});
 });
 
-app.listen(3000, () => {
-	console.log('Server is up on port 3000');
+app.listen(port, () => {
+	console.log(`Server is up on port ${port}`);
 }); 
 
 //set up local host
